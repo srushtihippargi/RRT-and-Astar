@@ -1,23 +1,23 @@
-# **PR2 Motion Planning: A* and RRT-Connect Implementation**
+# PR2 Motion Planning: A* and RRT-Connect Implementation
 
 This repository contains implementations of **A* and RRT-Connect** for planning collision-free paths for the PR2 robot in a given environment. The code follows structured templates:
 
 ---
 
-## **1. A* Algorithm for PR2 Base Motion Planning (3 DOF)**
+## 1. A* Algorithm for PR2 Base Motion Planning (3 DOF)
 
 This task involves implementing a **two-dimensional (X, Y) and rotational (θ) A* search** for the PR2’s base. The objective is to find the shortest **collision-free** path from a given **start configuration** to a **goal configuration** using the A* algorithm.
 
-### **A* Algorithm Overview**
+### A* Algorithm Overview
 A* is a search algorithm that finds the shortest path by balancing **exploration** and **exploitation** using:
-- **Action cost function:** Measures the cost of moving from one node to another.
+- **Action cost function**: Measures the cost of moving from one node to another.
 - **Heuristic function:** Estimates the cost from a node to the goal.
 
 The A* implementation **must use a priority queue** (see `priorityqueue_example.py` for reference).
 
 ---
 
-### **A* Cost Function**
+### A* Cost Function
 For nodes **n** and **m**, the action cost is computed as:
 
 \[
@@ -28,7 +28,7 @@ where:
 - \( n_x, n_y, n_{\theta} \) are the coordinates and orientation of node **n**.
 - \( m_x, m_y, m_{\theta} \) are the coordinates and orientation of node **m**.
 
-### **A* Heuristic Function**
+### A* Heuristic Function
 For node **n**, the heuristic function estimates the cost to the goal:
 
 \[
@@ -39,13 +39,13 @@ where **g** represents the goal configuration.
 
 ---
 
-### **Collision Checking**
+### Collision Checking
 - **Nodes must be collision-checked**, but edges between nodes do not need to be checked.
 - A proper discretization of X, Y, and θ must be selected to balance computation time and accuracy.
 
 ---
 
-### **A* Variants Implemented**
+### A* Variants Implemented
 1. **4-Connected Neighbors**: Each node is connected to its 4 adjacent neighbors.
 2. **8-Connected Neighbors**: Each node is connected to 8 adjacent neighbors.
 
